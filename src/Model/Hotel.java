@@ -37,4 +37,9 @@ public class Hotel extends Hospederia{
         }
            return adicional;
     }
+    @Override
+    public int valorACancelar() {
+
+        return (this.subtotal() + this.valorAdicional()) - this.bonoDescuento() ;
+    }
 }
