@@ -2,24 +2,24 @@ package Model;
 
 public class Cabagna extends Hospederia{
 
-    public String chimenea;
+    public boolean chimenea;
 
-    public Cabagna(String chimenea) {
+    public Cabagna(boolean chimenea) {
         this.chimenea = chimenea;
     }
 
-    public Cabagna(DatosCliente datosCliente, int valorBaseNoche, int cantNoches, String tipoTemporada, int capacidad, String fumador, String chimenea) {
+    public Cabagna(DatosCliente datosCliente, int valorBaseNoche, int cantNoches, String tipoTemporada, int capacidad, boolean fumador, boolean chimenea) {
         super(datosCliente, valorBaseNoche, cantNoches, tipoTemporada, capacidad, fumador);
         this.chimenea = chimenea;
     }
 
 
 
-    public String isChimenea() {
+    public boolean isChimenea() {
         return chimenea;
     }
 
-    public void setChimenea(String chimenea) {
+    public void setChimenea(boolean chimenea) {
         this.chimenea = chimenea;
     }
 
@@ -39,7 +39,7 @@ public class Cabagna extends Hospederia{
     public int valorAdicional() {
         int adicional =0 ;
 
-        if(this.isFumador().equalsIgnoreCase("si")){
+        if(this.isFumador()==true){
 
             adicional = Math.round(this.subtotal() * 30/100);
         }

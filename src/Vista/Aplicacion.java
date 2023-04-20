@@ -59,19 +59,27 @@ public class Aplicacion {
 
                         if (respuesta == 1) {
                             //cabagna
-                            String chimenea;
+                            boolean chimenea;
+                            int deseaChimenea=0;
 
+                                do{
+                                System.out.println("Favor ingrese opción de chimenea: 1) Si 2) No");
+                                deseaChimenea = Leer.datoInt();
+                                switch (deseaChimenea){
+                                    case 1:
+                                        chimenea=true;
 
-                            do { // itera siempre que la condición de true
-                                System.out.println("Favor ingrese opción de chimenea: Si/No");
-                                chimenea = Leer.dato();
+                                    case 2:
+                                        chimenea=false;
+                                        break;
 
-                            } while (chimenea.compareToIgnoreCase("Si") != 0 && //true
-                                    chimenea.compareToIgnoreCase("No") != 0); //false  ---false
+                                }}
+
+                                while(deseaChimenea< 1|| deseaChimenea>2);
 
 
                             empresa.ingresarClientesCabagna(
-                                    new Cabagna(new DatosCliente("Juana Diaz", 56473898), 15000, 4, "Alta", 6, "Si", "No"));
+                                    new Cabagna(new DatosCliente("Juana Diaz", 56473898), 15000, 4, "Alta", 6, true, false));
 
 
                             System.out.println("Se agrega cliente con exito a Cabagna");
@@ -79,26 +87,40 @@ public class Aplicacion {
 
                         } else if (respuesta == 2) {
                             //Hotel
-                            String fumador;
-                            String desayuno;
+                            boolean fumador=false;
+                            int opcionFumador=0;
 
-                            do { // itera siempre que la condición de true
-                                System.out.println("Favor ingrese opción de fumador: Si/No");
-                                fumador = Leer.dato();
+                                do{
+                                System.out.println("Favor ingrese opción de fumador: 1) Si, 2) No");
+                                opcionFumador = Leer.datoInt();
+                            switch (opcionFumador) {
+                                case 1:
+                                    fumador = true;
+                                    break;
+                                case 2:
+                                    fumador = false;
+                                    break;
+                            }
+                        } while (opcionFumador < 0 || opcionFumador > 2);
 
-                            } while (fumador.compareToIgnoreCase("Si") != 0 && //true
-                                    fumador.compareToIgnoreCase("No") != 0); //false  ---false System.out.println("Favor ingrese opción de fumador: Si/No");
-                            fumador = Leer.dato();
 
-                            do { // itera siempre que la condición de true
-                                System.out.println("Favor ingrese opción de desayuno: Si/No");
-                                desayuno = Leer.dato();
+                                int deseaDesayuno;
+                                boolean desayuno;
+                                do {
+                                    System.out.println("Favor ingrese opción de desayuno: 1) Si, 2)No");
+                                    deseaDesayuno = Leer.datoInt();
+                                switch (deseaDesayuno){
+                                    case 1:
+                                        desayuno=true;
 
-                            } while (desayuno.compareToIgnoreCase("Si") != 0 && //true
-                                    desayuno.compareToIgnoreCase("No") != 0); //false  ---false System.out.println("Favor ingrese opción de fumador: Si/No");
-                            desayuno = Leer.dato();
+                                    case 2:
+                                        desayuno=false;
 
-                            empresa.ingresarClientesHotel(new Hotel(new DatosCliente("Martin Fernandez", 34678905), 4, "Si", "No"));
+                                }
+                                }while (deseaDesayuno < 0 || deseaDesayuno > 2);
+
+
+                            empresa.ingresarClientesHotel(new Hotel(new DatosCliente("Martin Fernandez", 34678905), 20000, 4, "Alta",6, true, false));
                             System.out.println("Se agrega cliente a Hotel con exito");
 
 

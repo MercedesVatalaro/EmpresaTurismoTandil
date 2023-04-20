@@ -2,21 +2,27 @@ package Model;
 
 public class Hotel extends Hospederia{
 
-    public String desayuno;
+    public boolean desayuno;
 
-    public Hotel(DatosCliente datosCliente, int capacidad, String fumador, String desayuno) {
+    public Hotel(boolean desayuno) {
+        this.desayuno = desayuno;
+    }
+
+    public Hotel(DatosCliente datosCliente, int valorBaseNoche, int cantNoches, String tipoTemporada, int capacidad, boolean fumador, boolean desayuno) {
+        super(datosCliente, valorBaseNoche, cantNoches, tipoTemporada, capacidad, fumador);
+        this.desayuno = desayuno;
+    }
+
+    public Hotel(int capacidad, boolean fumador, boolean desayuno) {
         super(capacidad, fumador);
         this.desayuno = desayuno;
     }
 
-    public Hotel() {
-    }
-
-    public String isDesayuno() {
+    public boolean isDesayuno() {
         return desayuno;
     }
 
-    public void setDesayuno(String desayuno) {
+    public void setDesayuno(boolean desayuno) {
         this.desayuno = desayuno;
     }
 
@@ -25,7 +31,7 @@ public class Hotel extends Hospederia{
 
         int adicional =0 ;
 
-        if(this.isDesayuno().equalsIgnoreCase("si")){
+        if(this.isDesayuno()== true){
 
            adicional = Math.round(this.subtotal() * 30/100);
         }

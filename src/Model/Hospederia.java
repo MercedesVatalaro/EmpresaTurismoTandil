@@ -3,17 +3,17 @@ package Model;
 public abstract class Hospederia extends MedioDeAlojamiento{
 
     public int capacidad;
-    public String fumador;
+    public boolean fumador;
     public Hospederia() {
     }
 
-    public Hospederia(DatosCliente datosCliente, int valorBaseNoche, int cantNoches, String tipoTemporada, int capacidad, String fumador) {
+    public Hospederia(DatosCliente datosCliente, int valorBaseNoche, int cantNoches, String tipoTemporada, int capacidad, boolean fumador) {
         super(datosCliente, valorBaseNoche, cantNoches, tipoTemporada);
         this.capacidad = capacidad;
         this.fumador = fumador;
     }
 
-    public Hospederia(int capacidad, String fumador) {
+    public Hospederia(int capacidad, boolean fumador) {
     }
 
     public int getCapacidad() {
@@ -24,11 +24,11 @@ public abstract class Hospederia extends MedioDeAlojamiento{
         this.capacidad = capacidad;
     }
 
-    public String isFumador() {
+    public boolean isFumador() {
         return fumador;
     }
 
-    public void setFumador(String fumador) {
+    public void setFumador(boolean fumador) {
         this.fumador = fumador;
     }
 
